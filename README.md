@@ -6,7 +6,7 @@
 
 ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
 
-![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)
+[![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/@edsonberg7658)
 
 Uma API Backend For Frontend (BFF) para gerenciamento de biblioteca, Gerencia livros, autores e empréstimos. Usuários se cadastram, buscam livros e fazem empréstimos com data de devolução. Desenvolvida em .NET 9 com PostgreSQL, utilizando Docker para containerização.
 
