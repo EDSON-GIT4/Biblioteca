@@ -10,6 +10,41 @@
 
 Uma API Backend For Frontend (BFF) para gerenciamento de biblioteca, Gerencia livros, autores e empréstimos. Usuários se cadastram, buscam livros e fazem empréstimos com data de devolução. Desenvolvida em .NET 9 com PostgreSQL, utilizando Docker para containerização.
 
+```mermaid
+graph TD
+    subgraph Clientes
+        A[Usuário Final<br/>App/Site]
+        B[Cliente Parceiro<br/>Sistema Externo]
+    end
+
+    subgraph Docker
+        C[API ASP.NET 8<br/>Container :8080]
+        D[(PostgreSQL<br/>Container :5432)]
+    end
+
+    A -->|POST /auth/login| E[JWT Token - Role: User]
+    B -->|POST /auth/client| F[JWT Token - Role: Client]
+    
+    E -->|Bearer Token| C
+    F -->|Bearer Token| C
+    
+    C -->|EF Core + LINQ| D
+    
+    subgraph Banco
+        G[Tabelas:<br/>Users, Books, Authors,<br/>BookAuthor, Loans]
+    end
+    
+    D --> G
+
+    subgraph Segurança
+        H[Soft Delete<br/>HasQueryFilter]
+        I[Validação<br/>Datas + Disponibilidade]
+        J[Guard por Role<br/>Authorize Attribute]
+    end
+
+    C --- H
+    C --- I
+    C 
 
 ## Vídeo demonstrativo
 Neste link, mostro como a API funciona usando Swagger e como configurar após clonar
