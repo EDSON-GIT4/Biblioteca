@@ -45,7 +45,7 @@ graph TD
     C --- H
     C --- I
     C 
-
+```
 ## Vídeo demonstrativo
 Neste link, mostro como a API funciona usando Swagger e como configurar após clonar
 
